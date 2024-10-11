@@ -1,0 +1,25 @@
+* inicializacion del plugin
+	- crear dentro de la carpeta del proyecto-root--> build.gradle
+	plugins {
+		id 'co.com.bancolombia.cleanArchitecture' version '3.17.26'
+	}
+	- ejecutar:  $ gradle tasks
+
+1. Creación del proyecto
+
+$ gradle ca --package=worj.javiermantilla --type=reactive --name=example-bancolombia --lombok=true
+
+Aqui tuve problemas con la linea 18 del archivo : main.gradle, y tuve que comentariar la linea--> //sourceCompatibility = JavaVersion.VERSION_17
+
+2. Creacion del modelo y puerto o gateway 
+
+$ gradle gm --name Product
+
+3. Generar caso de uso asociado a los productos.
+$ gradle guc --name Product
+
+4. Crear el entry-point --> infraestructura por ejemplo de tipo rest.
+$ gradle gep --type=webflux 
+
+5. Implementar el driven-adapter de mongo por ejemplo
+$ gradle gda --type mongodb --name=Product

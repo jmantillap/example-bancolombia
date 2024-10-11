@@ -1,0 +1,32 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: "example-hexagonal-bcol"
+  devtools:
+    add-properties: false
+  h2:
+    console:
+      enabled: true
+      path: "/h2"
+  profiles:
+    include: null
+  data:
+    mongodb:
+      #uri: "mongodb://localhost:27017/spring_boot"
+      #uri: "mongodb://admin:123456@localhost:27017/spring_boot"
+      authentication-database: "admin"
+      username: "admin"
+      password: "123456"
+      database: "spring_boot"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "health,prometheus"
+  endpoint:
+    health:
+      probes:
+        enabled: true
+cors:
+  allowed-origins: "http://localhost:4200,http://localhost:8080"
